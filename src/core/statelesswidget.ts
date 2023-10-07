@@ -1,20 +1,20 @@
-import { DestroyOptions, MountOptions, PlugStatelessWidget, PlugWidget } from "../interfaces"
+import { DestroyOptions, MountOptions, VanStatelessWidget, VanWidget } from "../interfaces"
 
 
 
 /**
- * @description Same as other regular widgets, but is able to run lifecycle callbacks. This Widget is also dependent on it's parent widget and cannot listen to streams.
+ * @description Same as other Vanwidgets, but is able to run lifecycle callbacks. This Widget is also dependent on it's parent widget and cannot listen to streams.
  * 
- * @returns {PlugWidget}
+ * @returns {VanWidget}
  */
-export default function StatelessWidget({ onBeforeMount , onMount , onDestroy , body , allowParentalUpdate } : PlugStatelessWidget) : PlugWidget{
+export default function StatelessWidget({ onBeforeMount , onMount , onDestroy , body , allowParentalUpdate } : VanStatelessWidget) : VanWidget{
 
 
     function mount({ node , DOMPosition , getSiblings , runEntryTransition } : MountOptions){
 
         if(!node) throw new Error('cannot mount widget on undefined node')
 
-        if(!body) throw new Error('property "body" of Plugcomponent must be of type PlugWidget or PlugComponent')
+        if(!body) throw new Error('property "body" of Vancomponent must be of type VanWidget or VanComponent')
 
         if(typeof onBeforeMount === 'function') onBeforeMount()
 

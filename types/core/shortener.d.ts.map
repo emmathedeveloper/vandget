@@ -1,1 +1,1 @@
-{"version":3,"file":"shortener.d.ts","sourceRoot":"","sources":["../../src/core/shortener.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,UAAU,EAAE,MAAM,eAAe,CAAC;AAG3C,MAAM,CAAC,OAAO,UAAU,CAAC,CAAC,CAAC,EAAE,MAAM,EAAE,UAAU,CAAC,CAAC,CAAC,GAAI,CAAC,CAGtD"}
+{"version":3,"file":"shortener.d.ts","sourceRoot":"","sources":["../../src/core/shortener.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,SAAS,EAAE,MAAM,eAAe,CAAC;AAG1C,MAAM,CAAC,OAAO,UAAU,CAAC,CAAC,CAAC,EAAE,MAAM,EAAE,SAAS,CAAC,CAAC,CAAC,GAAI,CAAC,CAGrD"}

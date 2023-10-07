@@ -1,8 +1,8 @@
-import { PlugStream } from "../interfaces"
+import { VanStream } from "../interfaces"
 
 
 
-export function isValidValueForEachFragment(values: any[] | PlugStream<any[]>){
+export function isValidValueForEachFragment(values: any[] | VanStream<any[]>){
 
     if(!Array.isArray(values) && values.isStream && !Array.isArray(values.value)) return false
 
@@ -11,7 +11,7 @@ export function isValidValueForEachFragment(values: any[] | PlugStream<any[]>){
     return true
 }
 
-export function isValidValueForHtmlFragment(content: string | PlugStream<string>){
+export function isValidValueForHtmlFragment(content: string | VanStream<string>){
 
     if(typeof content !== 'string' && content.isStream && typeof content.value !== 'string') return false
 
@@ -20,7 +20,7 @@ export function isValidValueForHtmlFragment(content: string | PlugStream<string>
     return true
 }
 
-export function streamsToListenToAreValid(streams: PlugStream<any>[]){
+export function streamsToListenToAreValid(streams: VanStream<any>[]){
 
     const allIsStream = streams.every(stream => stream.isStream)
 

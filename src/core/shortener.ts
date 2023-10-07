@@ -1,8 +1,8 @@
 import { reference } from "../helper/helper";
-import { PlugStream } from "../interfaces";
+import { VanStream } from "../interfaces";
 
 
-export default function $<T>(stream: PlugStream<T>) : T {
+export default function $<T>(stream: VanStream<T>) : T {
 
     return reference(stream.value)
 }

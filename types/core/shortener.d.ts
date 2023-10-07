@@ -1,3 +1,3 @@
-import { PlugStream } from "../interfaces";
-export default function $<T>(stream: PlugStream<T>): T;
+import { VanStream } from "../interfaces";
+export default function $<T>(stream: VanStream<T>): T;
 //# sourceMappingURL=shortener.d.ts.map

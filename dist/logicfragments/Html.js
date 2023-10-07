@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const checks_1 = require("../helper/checks");
 function $html(content) {
     if (!(0, checks_1.isValidValueForHtmlFragment)(content))
-        throw new Error('The content parameter of the "$html" logical fragment has to be a string or PlugStream with a string as it\'s value');
+        throw new Error('The content parameter of the "$html" logical fragment has to be a string or VanStream with a string as it\'s value');
     let id = Math.floor(Math.random() * 1000000000).toString();
     let element_list = [];
     let position;

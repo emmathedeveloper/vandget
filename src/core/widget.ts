@@ -1,9 +1,9 @@
 import { addEvents, compareObjects, processObject } from "../helper/helper"
-import { DestroyOptions, MountOptions, PlugFragment, PlugWidget, PlugWidgetConfig, PreviousSiblingsOrChildrenCallback } from "../interfaces";
+import { DestroyOptions, MountOptions, VanFragment, VanWidget, VanWidgetConfig, PreviousSiblingsOrChildrenCallback } from "../interfaces";
 import { run_entry_transition, run_exit_transition } from "../transition/runner";
 
 
-export default function Widget(config: PlugWidgetConfig) : PlugWidget{
+export default function Widget(config: VanWidgetConfig) : VanWidget{
     
     let element = document.createElement(config.tag)
 
@@ -178,7 +178,7 @@ export default function Widget(config: PlugWidgetConfig) : PlugWidget{
         interface fragment_list{
             at: number
 
-            fragment: PlugFragment
+            fragment: VanFragment
         }
 
         let fragment_list: fragment_list[] = []

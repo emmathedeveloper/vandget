@@ -1,14 +1,14 @@
 import { reference } from "../helper/helper"
-import { PlugFragment, PlugStream, PlugWidget } from "../interfaces"
+import { VanFragment, VanStream, VanWidget } from "../interfaces"
 
 
 
 
-class Stream<T> implements PlugStream<T>{
+class Stream<T> implements VanStream<T>{
 
     #value: T
 
-    #widget_list: (PlugFragment & PlugWidget)[]
+    #widget_list: (VanFragment & VanWidget)[]
 
     #subscribtions: Map<string , (value: T) => void>
 
@@ -56,7 +56,7 @@ class Stream<T> implements PlugStream<T>{
         this.#widget_list = this.#widget_list.filter(widget => widget.id !== id)
     }
 
-    addToWatchList(widget: PlugWidget | PlugFragment){
+    addToWatchList(widget: VanWidget | VanFragment){
 
         this.#widget_list.push(widget)
 

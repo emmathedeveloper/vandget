@@ -1,14 +1,14 @@
 import { streamsToListenToAreValid } from "../helper/checks";
-import { PlugStatefulWidget , DestroyOptions , MountOptions, PlugWidget } from "../interfaces";
+import { VanStatefulWidget , DestroyOptions , MountOptions, VanWidget } from "../interfaces";
 
 
 /**
  * 
  * @description A Widget that can listen to streams and update it's UI accordingly when those streams change
  * 
- * @returns {PlugWidget}
+ * @returns {VanWidget}
  */
-export default function StatefulWidget({ onBeforeMount , onMount , onDestroy , listen , body } : PlugStatefulWidget) : PlugWidget{
+export default function StatefulWidget({ onBeforeMount , onMount , onDestroy , listen , body } : VanStatefulWidget) : VanWidget{
     
     const streams = listen
 
@@ -37,7 +37,7 @@ export default function StatefulWidget({ onBeforeMount , onMount , onDestroy , l
 
         if(!node) throw new Error('cannot mount widget on undefined node')
 
-        if(!body) throw new Error('property "body" of Plugcomponent must be of type PlugWidget or PlugComponent')
+        if(!body) throw new Error('property "body" of Vancomponent must be of type VanWidget or VanComponent')
 
         if(typeof onBeforeMount === 'function') onBeforeMount()
 

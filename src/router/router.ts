@@ -1,8 +1,8 @@
 import { urlIsMatch } from "../helper/helper";
-import { DestroyOptions, MountOptions, PlugWidget, PreviousSiblingsOrChildrenCallback, RouterParams } from "../interfaces";
+import { DestroyOptions, MountOptions, VanWidget, PreviousSiblingsOrChildrenCallback, RouterParams } from "../interfaces";
 
 
-export default function Router({ onRouteChange = () => {}, routes } : RouterParams) : PlugWidget{
+export default function Router({ onRouteChange = () => {}, routes } : RouterParams) : VanWidget{
 
     let id = Math.floor(Math.random() * 1000000000).toString()
 
@@ -12,7 +12,7 @@ export default function Router({ onRouteChange = () => {}, routes } : RouterPara
 
     let getSiblingsCallback: PreviousSiblingsOrChildrenCallback | undefined
 
-    let currentWidget: PlugWidget | undefined
+    let currentWidget: VanWidget | undefined
 
     function init(){
         

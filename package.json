@@ -7,8 +7,9 @@
     "./core": "./src/core/index.ts",
     "./widgets": "./src/widgets/index.ts",
     "./transition": "./src/transition/index.ts",
-    "./logicfragment": "./src/logicfragment/index.ts",
-    "./router": "./src/router/index.ts"
+    "./logicfragment": "./src/logicfragments/index.ts",
+    "./router": "./src/router/index.ts",
+    "./types": "./src/interfaces.ts"
   },
   "keywords": [],
   "author": "emmathedeveloper",

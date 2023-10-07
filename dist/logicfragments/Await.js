@@ -4,7 +4,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @description A LogicalFragment for rendering promise based widgets.
  *
  * @param {AwaitLogicFragmentParams} param0
- * @returns {PlugFragment}
+ * @returns {VanFragment}
  */
 function $await({ promise, pending, fullfilled, rejected }) {
     let current_widget = pending;

@@ -1,7 +1,7 @@
 
 
 
-import { PlugWidget, AwaitLogicFragmentParams, MountOptions, DestroyOptions, PlugFragment } from "../interfaces";
+import { VanWidget, AwaitLogicFragmentParams, MountOptions, DestroyOptions, VanFragment } from "../interfaces";
 
 
 
@@ -10,9 +10,9 @@ import { PlugWidget, AwaitLogicFragmentParams, MountOptions, DestroyOptions, Plu
  * @description A LogicalFragment for rendering promise based widgets.
  * 
  * @param {AwaitLogicFragmentParams} param0
- * @returns {PlugFragment}
+ * @returns {VanFragment}
  */
-export default function $await<T>({ promise , pending , fullfilled , rejected } : AwaitLogicFragmentParams<T>) : PlugWidget | PlugFragment{
+export default function $await<T>({ promise , pending , fullfilled , rejected } : AwaitLogicFragmentParams<T>) : VanWidget | VanFragment{
 
     let current_widget = pending
 

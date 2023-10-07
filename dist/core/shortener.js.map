@@ -1,1 +1,1 @@
-{"version":3,"file":"shortener.js","sourceRoot":"","sources":["../../src/core/shortener.ts"],"names":[],"mappings":";;AAAA,6CAA6C;AAI7C,SAAwB,CAAC,CAAI,MAAqB;IAE9C,OAAO,IAAA,kBAAS,EAAC,MAAM,CAAC,KAAK,CAAC,CAAA;AAClC,CAAC;AAHD,oBAGC"}
+{"version":3,"file":"shortener.js","sourceRoot":"","sources":["../../src/core/shortener.ts"],"names":[],"mappings":";;AAAA,6CAA6C;AAI7C,SAAwB,CAAC,CAAI,MAAoB;IAE7C,OAAO,IAAA,kBAAS,EAAC,MAAM,CAAC,KAAK,CAAC,CAAA;AAClC,CAAC;AAHD,oBAGC"}
