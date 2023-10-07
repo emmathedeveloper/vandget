@@ -1,3 +1,4 @@
+import Alert from "./Alert"
 import Anchor from "./Anchor"
 import Button from "./Button"
 import Container from "./Container"
@@ -15,5 +16,6 @@ export {
     Container,
     TextArea,
     Input,
-    Interactive
+    Interactive,
+    Alert
 }

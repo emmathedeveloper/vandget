@@ -300,6 +300,20 @@ export interface TextConfig extends WidgetConfig{
     style?: StyleType
 }
 
+export interface Alertconfig extends WidgetConfig{
+
+    id?: Updater<string>
+
+    style?: StyleType
+
+    onClick: (e: any) => void
+
+    children?: (PlugWidget | PlugFragment)[]
+
+    onCancel: (e: any) => void
+
+}
+
 export interface ButtonConfig extends TextConfig{
     
     disabled?: Updater<boolean>
