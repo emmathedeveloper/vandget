@@ -1,7 +1,7 @@
 
 type StyleType = CSSStyleDeclaration | {}
 
-export type PreviousSiblingsOrChildrenCallback = (start?: number , end?: number , called_from_child?: boolean) => (PlugWidget & PlugFragment)[]
+export type PreviousSiblingsOrChildrenCallback = (start?: number , end?: number , called_from_child?: boolean) => (VanWidget & VanFragment)[]
 
 export type DOMPositionInfluencerOperation = 'set' | 'add' | 'subtract'
 
@@ -39,9 +39,9 @@ export interface DestroyOptions{
 
 
 /**
- *@description extends a normal PlugWidget to create fragments that act as a logical fragments widget or normal fragments
+ *@description extends a normal VanWidget to create fragments that act as a logical fragments widget or normal fragments
 */
-export interface PlugFragment extends PlugWidget{
+export interface VanFragment extends VanWidget{
 
     isFragment?: boolean
 
@@ -50,7 +50,7 @@ export interface PlugFragment extends PlugWidget{
     isNormalFragment?: boolean
 }
 
-export interface PlugStyleSheet{
+export interface VanStyleSheet{
     [name: string] : CSSStyleDeclaration | {}
 }
 
@@ -58,7 +58,7 @@ export interface PlugStyleSheet{
 /**
  * @description Builds HTMLElements and inputs them to the DOM
  */
-export interface PlugWidget{
+export interface VanWidget{
 
     /**
      * @description Gets the id for this particular widget.
@@ -104,13 +104,13 @@ export interface PlugWidget{
 }
 
 /**
- * @description Configuration used by a PlugWidget to build it's HTMLElement.
+ * @description Configuration used by a VanWidget to build it's HTMLElement.
  */
-export interface PlugWidgetConfig{
+export interface VanWidgetConfig{
     
     tag: keyof HTMLElementTagNameMap
 
-    ref?: PlugRef<unknown>
+    ref?: VanRef<unknown>
 
     transition?: TransitionFunction
 
@@ -120,7 +120,7 @@ export interface PlugWidgetConfig{
     
     style?: StyleType
     
-    children?: (PlugWidget & PlugFragment)[]
+    children?: (VanWidget & VanFragment)[]
     
     events?: any
 }
@@ -128,7 +128,7 @@ export interface PlugWidgetConfig{
 /**
  * @description to build it's body.
  */
-export interface PlugHigherOrderWidget{
+export interface VanHigherOrderWidget{
 
     /**
      * @description Callback to run before the body is mounted on the DOM.
@@ -148,10 +148,10 @@ export interface PlugHigherOrderWidget{
     /**
      * @description Defines the structure of the UI.
      */
-    body: PlugWidget | PlugFragment
+    body: VanWidget | VanFragment
 }
 
-export interface PlugStatelessWidget extends PlugHigherOrderWidget{
+export interface VanStatelessWidget extends VanHigherOrderWidget{
 
     /**
      * @description If set to "true", this widget will update it's body when it's parent is running updates.
@@ -159,23 +159,23 @@ export interface PlugStatelessWidget extends PlugHigherOrderWidget{
     allowParentalUpdate?: boolean
 }
 
-export interface PlugStatefulWidget extends PlugHigherOrderWidget{
+export interface VanStatefulWidget extends VanHigherOrderWidget{
 
     /**
      * @description An Array of streams to listen to for updates.
      */
-    listen?: PlugStream<any>[]
+    listen?: VanStream<any>[]
 }
 
 type Unsubscribe = () => void
 
 /**
- * @description Creates a PlugStream which extends a regular stream.
+ * @description Creates a VanStream which extends a regular stream.
 */
-export interface PlugStream<T>{
+export interface VanStream<T>{
     
     /**
-     * @description Returns true as long as this is a PlugStream.
+     * @description Returns true as long as this is a VanStream.
      */
     get isStream() : boolean
 
@@ -192,7 +192,7 @@ export interface PlugStream<T>{
     /**
      * @description Adds a component to the stream's watchlist and updates the component whenever it's value changes.
      */
-    addToWatchList: (component: PlugWidget) => void
+    addToWatchList: (component: VanWidget) => void
     
     /**
      * @description Removes a component from the stream's watchlist and stops updating the component.
@@ -200,19 +200,19 @@ export interface PlugStream<T>{
     removeFromWatchList: (id: string) => void
     
     /**
-     * @description Changes the value of the PlugStream with reference to it's previous value.
+     * @description Changes the value of the VanStream with reference to it's previous value.
     */
    update: (callback: (value: T) => T) => void
 
     /**
-     * @description Subcribes a callback to this PlugStream and calls the callback whenever it's value changes. Returns an unsubscribe callback .
+     * @description Subcribes a callback to this VanStream and calls the callback whenever it's value changes. Returns an unsubscribe callback .
      * 
      * @returns {Unsubscribe}
      */
     subscribe: (callback:(value: T) => void) => Unsubscribe
 }
 
-export interface PlugRef<T>{
+export interface VanRef<T>{
 
     clear() : void
 
@@ -225,22 +225,22 @@ export interface EachLogicFragmentParams<T>{
     /**
      * @description An Array of values or a function that returns an Array of values.
      */
-    values: T[] | PlugStream<T[]>
+    values: T[] | VanStream<T[]>
     
     /**
-     * @param {T} value - value to pass to the PlugWidget or Component.
+     * @param {T} value - value to pass to the VanWidget or Component.
      * 
      * @param {number} index - index of the value in the values Array.
      * 
-     * @description A callback that returns a PlugWidget or Component.
+     * @description A callback that returns a VanWidget or Component.
      */
-    widget: (value: T , index: number) => PlugWidget | PlugWidget | PlugFragment
+    widget: (value: T , index: number) => VanWidget | VanWidget | VanFragment
 }
 
 export interface IfLogicFragmentParams{
     condition: Updater<boolean>
 
-    widget: PlugWidget | PlugWidget | PlugFragment
+    widget: VanWidget | VanWidget | VanFragment
 }
 
 export interface AwaitLogicFragmentParams<T>{
@@ -251,28 +251,28 @@ export interface AwaitLogicFragmentParams<T>{
     promise: Promise<T>
     
     /**
-     * @param {PlugWidget | PlugFragment} pending - A widget to display while the promise is still pending.
+     * @param {VanWidget | VanFragment} pending - A widget to display while the promise is still pending.
      */
-    pending?: PlugWidget | PlugFragment
+    pending?: VanWidget | VanFragment
     
     /**
-     * @param {(result: T) => PlugWidget | PlugFragment} fullfilled - A function that takes the resolve value and returns A widget to display when the promise is resolved.
+     * @param {(result: T) => VanWidget | VanFragment} fullfilled - A function that takes the resolve value and returns A widget to display when the promise is resolved.
      */
-    fullfilled?: (result: T) => PlugWidget | PlugFragment
+    fullfilled?: (result: T) => VanWidget | VanFragment
     
     /**
-     * @param {(result: T) => PlugWidget | PlugFragment} fullfilled - A function that takes the reject value and returns A widget to display if the promise is rejected.
+     * @param {(result: T) => VanWidget | VanFragment} fullfilled - A function that takes the reject value and returns A widget to display if the promise is rejected.
      */
-    rejected?: (error: any) => PlugWidget | PlugFragment
+    rejected?: (error: any) => VanWidget | VanFragment
 }
 
-export interface IfLogicFragment extends PlugWidget{
+export interface IfLogicFragment extends VanWidget{
     $elseif: (param: IfLogicFragmentParams) => IfLogicFragment
 
-    $else: (widget: PlugWidget | PlugWidget) => PlugWidget | PlugWidget
+    $else: (widget: VanWidget | VanWidget) => VanWidget | VanWidget
 }
 
-export type HtmlLogicFragmentParam = string | PlugStream<string>
+export type HtmlLogicFragmentParam = string | VanStream<string>
 
 export type TextTypes = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'small' | 'b' | 'em' | 'strong' | 'bold'
 
@@ -282,7 +282,7 @@ export type InputTypes = string | 'text' | 'file' | 'password' | 'email' | 'butt
 
 export interface WidgetConfig{
 
-    ref?: PlugRef<unknown>
+    ref?: VanRef<unknown>
 
     id?: Updater<string>,
 
@@ -325,7 +325,7 @@ export interface ButtonConfig extends TextConfig{
 export interface ContainerConfig extends WidgetConfig{
     type?: ContainerTypes
 
-    children?: (PlugWidget | PlugFragment)[]
+    children?: (VanWidget | VanFragment)[]
 }
 
 export type AnchorTargetTypes = '_blank' | '_parent' | '_self' | '_top'
@@ -336,7 +336,7 @@ export interface AnchorConfig extends WidgetConfig{
     
     target?: Updater<AnchorTargetTypes>
 
-    child: PlugFragment | PlugWidget
+    child: VanFragment | VanWidget
 }
 
 export interface InputConfig extends WidgetConfig{
@@ -388,7 +388,7 @@ export interface SvgConfig extends WidgetConfig{
 
     xlmns?: Updater<string>
 
-    children?: (PlugFragment | PlugWidget)[]
+    children?: (VanFragment | VanWidget)[]
 }
 
 export interface SvgPathConfig extends WidgetConfig{
@@ -418,7 +418,7 @@ export interface InteractiveConfig extends WidgetConfig{
     
     type?: ContainerTypes
 
-    child?: PlugWidget | PlugFragment
+    child?: VanWidget | VanFragment
     
     onBeforexrselect?: (e: any) => void
     
@@ -659,7 +659,7 @@ export type TransitionFunction = (node?: Element) => TransitionConfig
 export interface RouteConfig{
     path: string
 
-    widget: () => PlugWidget
+    widget: () => VanWidget
 }
 
 export interface RouteMatch{
@@ -689,6 +689,6 @@ export interface LinkWidget extends WidgetConfig{
 
     options?: NavigationOptions
 
-    child?: PlugWidget | PlugFragment
+    child?: VanWidget | VanFragment
 }
 

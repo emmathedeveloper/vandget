@@ -1,3 +1,3 @@
-import { PlugWidget, PlugWidgetConfig } from "../interfaces";
-export default function Widget(config: PlugWidgetConfig): PlugWidget;
+import { VanWidget, VanWidgetConfig } from "../interfaces";
+export default function Widget(config: VanWidgetConfig): VanWidget;
 //# sourceMappingURL=widget.d.ts.map

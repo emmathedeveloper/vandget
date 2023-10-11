@@ -3,8 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * @description Avoid using this logical fragment by all means as it is still under development
  *
- * @param {() => PlugWidget | undefined} widget
- * @returns {PlugFragment}
+ * @param {() => VanWidget | undefined} widget
+ * @returns {VanFragment}
  */
 function $if({ condition, widget }) {
     let current_widget;

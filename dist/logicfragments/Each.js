@@ -4,7 +4,7 @@ const checks_1 = require("../helper/checks");
 const helper_1 = require("../helper/helper");
 function $each({ values, widget }) {
     if (!(0, checks_1.isValidValueForEachFragment)(values))
-        throw new Error('The values prop of the "$each" logical fragment has to be an Array or PlugStream with an Array as it\'s value');
+        throw new Error('The values prop of the "$each" logical fragment has to be an Array or VanStream with an Array as it\'s value');
     let DOMPosition;
     let parent;
     let isMounted = false;

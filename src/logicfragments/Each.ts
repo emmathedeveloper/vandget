@@ -1,12 +1,12 @@
 import { isValidValueForEachFragment } from "../helper/checks";
-import { transformMapToArray, transformToMap } from "../helper/helper";
-import { DestroyOptions, EachLogicFragmentParams, MountOptions, PlugFragment, PlugWidget, PreviousSiblingsOrChildrenCallback } from "../interfaces";
+import { transformMapToArray } from "../helper/helper";
+import { DestroyOptions, EachLogicFragmentParams, MountOptions, VanFragment, VanWidget, PreviousSiblingsOrChildrenCallback } from "../interfaces";
 
 
 
-export default function $each<T>({ values , widget } : EachLogicFragmentParams<T>) : PlugFragment{
+export default function $each<T>({ values , widget } : EachLogicFragmentParams<T>) : VanFragment{
     
-    if(!isValidValueForEachFragment(values)) throw new Error('The values prop of the "$each" logical fragment has to be an Array or PlugStream with an Array as it\'s value')
+    if(!isValidValueForEachFragment(values)) throw new Error('The values prop of the "$each" logical fragment has to be an Array or VanStream with an Array as it\'s value')
 
     let DOMPosition: number | undefined
 
@@ -20,7 +20,7 @@ export default function $each<T>({ values , widget } : EachLogicFragmentParams<T
 
     let getSiblingsCallback: PreviousSiblingsOrChildrenCallback | undefined
     
-    const widget_map: Map<number , (PlugWidget | PlugFragment)> = new Map()
+    const widget_map: Map<number , (VanWidget | VanFragment)> = new Map()
 
     const EachFragment = {
         isEachFragment: true,
@@ -133,7 +133,7 @@ export default function $each<T>({ values , widget } : EachLogicFragmentParams<T
         widget_map.clear()
     }
 
-    function getChildren(start?: number , end?: number) : (PlugWidget & PlugFragment)[]{
+    function getChildren(start?: number , end?: number) : (VanWidget & VanFragment)[]{
 
         const children = transformMapToArray(widget_map).slice(start , end)
         

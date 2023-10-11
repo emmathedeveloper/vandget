@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @template T
  *
  * @param {T} initial_value The initial value for the ref.
- * @returns {PlugRef<T>}
+ * @returns {VanRef<T>}
  */
 function ref(initial_value) {
     let current = initial_value;

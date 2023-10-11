@@ -1,14 +1,14 @@
-import { DestroyOptions, MountOptions, PlugFragment, PlugWidget, PreviousSiblingsOrChildrenCallback } from "../interfaces";
+import { DestroyOptions, MountOptions, VanFragment, VanWidget, PreviousSiblingsOrChildrenCallback } from "../interfaces";
 
 
 /**
  * 
  * @description This widget is still experimental. DO NOT nest any kind of logicalfragment , like the "$each" , "$if" or "$await", directly within this widget to prevent wrong layout in the DOM.
  * 
- * @param {(PlugFragment | PlugWidget)[]} children - list of child widgets to render.
- * @returns {PlugFragment}
+ * @param {(VanFragment | VanWidget)[]} children - list of child widgets to render.
+ * @returns {VanFragment}
  */
-export default function Fragment(children: (PlugWidget & PlugFragment)[]) : PlugFragment{
+export default function Fragment(children: (VanWidget & VanFragment)[]) : VanFragment{
 
     const id = Math.floor(Math.random() * 1000000000).toString()
 
@@ -47,7 +47,7 @@ export default function Fragment(children: (PlugWidget & PlugFragment)[]) : Plug
         isMounted = false
     }
 
-    function getChildren(start?: number , end?: number) : (PlugWidget & PlugFragment)[]{
+    function getChildren(start?: number , end?: number) : (VanWidget & VanFragment)[]{
 
         let to_be_returned = getSiblingsCallback ? getSiblingsCallback(0 , DOMPosition , true) : []
 
@@ -62,7 +62,7 @@ export default function Fragment(children: (PlugWidget & PlugFragment)[]) : Plug
         interface fragment_list{
             at: number
 
-            fragment: PlugFragment
+            fragment: VanFragment
         }
 
         let fragment_list: fragment_list[] = []

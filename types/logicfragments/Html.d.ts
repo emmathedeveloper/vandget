@@ -1,3 +1,3 @@
-import { HtmlLogicFragmentParam, PlugFragment } from "../interfaces";
-export default function $html(content: HtmlLogicFragmentParam): PlugFragment;
+import { HtmlLogicFragmentParam, VanFragment } from "../interfaces";
+export default function $html(content: HtmlLogicFragmentParam): VanFragment;
 //# sourceMappingURL=Html.d.ts.map

@@ -1,16 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
- * @description Same as other regular widgets, but is able to run lifecycle callbacks. This Widget is also dependent on it's parent widget and cannot listen to streams.
+ * @description Same as other Vanwidgets, but is able to run lifecycle callbacks. This Widget is also dependent on it's parent widget and cannot listen to streams.
  *
- * @returns {PlugWidget}
+ * @returns {VanWidget}
  */
 function StatelessWidget({ onBeforeMount, onMount, onDestroy, body, allowParentalUpdate }) {
     function mount({ node, DOMPosition, getSiblings, runEntryTransition }) {
         if (!node)
             throw new Error('cannot mount widget on undefined node');
         if (!body)
-            throw new Error('property "body" of Plugcomponent must be of type PlugWidget or PlugComponent');
+            throw new Error('property "body" of Vancomponent must be of type VanWidget or VanComponent');
         if (typeof onBeforeMount === 'function')
             onBeforeMount();
         body.mount({ node, DOMPosition, getSiblings, runEntryTransition });

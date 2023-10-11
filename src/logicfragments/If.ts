@@ -1,4 +1,4 @@
-import { PlugWidget, IfLogicFragmentParams , IfLogicFragment, PlugFragment, PreviousSiblingsOrChildrenCallback, MountOptions, DestroyOptions } from "../interfaces";
+import { VanWidget, IfLogicFragmentParams , IfLogicFragment, VanFragment, PreviousSiblingsOrChildrenCallback, MountOptions, DestroyOptions } from "../interfaces";
 
 
 
@@ -6,12 +6,12 @@ import { PlugWidget, IfLogicFragmentParams , IfLogicFragment, PlugFragment, Prev
 /**
  * @description Avoid using this logical fragment by all means as it is still under development
  * 
- * @param {() => PlugWidget | undefined} widget
- * @returns {PlugFragment}
+ * @param {() => VanWidget | undefined} widget
+ * @returns {VanFragment}
  */
 export default function $if({ condition , widget } : IfLogicFragmentParams) : IfLogicFragment{
 
-    let current_widget: (PlugWidget & PlugFragment) | undefined
+    let current_widget: (VanWidget & VanFragment) | undefined
 
     let parent: Element
 
@@ -21,7 +21,7 @@ export default function $if({ condition , widget } : IfLogicFragmentParams) : If
 
     let getSiblingsCallback: PreviousSiblingsOrChildrenCallback | undefined
 
-    let default_widget: PlugWidget | PlugFragment | undefined
+    let default_widget: VanWidget | VanFragment | undefined
 
     const memory: Map<number , IfLogicFragmentParams> = new Map()
 
@@ -64,7 +64,7 @@ export default function $if({ condition , widget } : IfLogicFragmentParams) : If
 
     function update(){
 
-        let new_widget: PlugWidget | PlugFragment | undefined
+        let new_widget: VanWidget | VanFragment | undefined
 
         for(let i = 0; i < memory.size; i++){
 
@@ -128,7 +128,7 @@ export default function $if({ condition , widget } : IfLogicFragmentParams) : If
         }
     }
     
-    function $else(widget: PlugWidget | PlugFragment){
+    function $else(widget: VanWidget | VanFragment){
 
         default_widget = widget
 

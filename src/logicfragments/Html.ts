@@ -1,13 +1,13 @@
 import { isValidValueForHtmlFragment } from "../helper/checks"
-import { HtmlLogicFragmentParam, MountOptions, PlugFragment, PreviousSiblingsOrChildrenCallback } from "../interfaces"
+import { HtmlLogicFragmentParam, MountOptions, VanFragment, PreviousSiblingsOrChildrenCallback } from "../interfaces"
 
 
 
 
 
-export default function $html(content: HtmlLogicFragmentParam) : PlugFragment{
+export default function $html(content: HtmlLogicFragmentParam) : VanFragment{
 
-    if(!isValidValueForHtmlFragment(content)) throw new Error('The content parameter of the "$html" logical fragment has to be a string or PlugStream with a string as it\'s value')
+    if(!isValidValueForHtmlFragment(content)) throw new Error('The content parameter of the "$html" logical fragment has to be a string or VanStream with a string as it\'s value')
 
     let id = Math.floor(Math.random() * 1000000000).toString()
 

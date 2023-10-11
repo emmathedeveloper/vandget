@@ -5,7 +5,7 @@ const checks_1 = require("../helper/checks");
  *
  * @description A Widget that can listen to streams and update it's UI accordingly when those streams change
  *
- * @returns {PlugWidget}
+ * @returns {VanWidget}
  */
 function StatefulWidget({ onBeforeMount, onMount, onDestroy, listen, body }) {
     const streams = listen;
@@ -30,7 +30,7 @@ function StatefulWidget({ onBeforeMount, onMount, onDestroy, listen, body }) {
         if (!node)
             throw new Error('cannot mount widget on undefined node');
         if (!body)
-            throw new Error('property "body" of Plugcomponent must be of type PlugWidget or PlugComponent');
+            throw new Error('property "body" of Vancomponent must be of type VanWidget or VanComponent');
         if (typeof onBeforeMount === 'function')
             onBeforeMount();
         body.mount({ node, DOMPosition, getSiblings, runEntryTransition });
