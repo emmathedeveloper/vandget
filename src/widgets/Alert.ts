@@ -5,7 +5,7 @@ import { Alertconfig, Updater } from "../interfaces";
 //text: Updater<string>,
 // so it can take a child of button and also has the events of click and cancel and I will also add the OnPop event
 
-export default function Alert( config?:  Alertconfig,){
+export default function Alert( config?:  Alertconfig, children?: any){
 
     const init: any = {
         tag: 'alert',
@@ -25,6 +25,8 @@ export default function Alert( config?:  Alertconfig,){
     if(typeof config?.onClick === 'function') init.events.onClick = config?.onClick
 
     if(typeof config?.onCancel === 'function') init.events.onCancel = config?.onCancel
+
+    if(children) init.props.children = children
 
     return Widget(init)
 }

@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("../core");
 function Image(config) {
     const init = {
-        tag: 'img',
+        tag: 'img' || 'image',
         ref: config?.ref,
         id: config?.id,
         style: config?.style,

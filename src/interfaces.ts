@@ -308,11 +308,9 @@ export interface Alertconfig extends WidgetConfig{
 
     onClick: (e: any) => void
 
-    children?: (PlugWidget | PlugFragment)[]
+    children?: any
 
     onCancel: (e: any) => void 
-
-    child?: PlugWidget | PlugFragment
 }
 
 export interface ButtonConfig extends TextConfig{
