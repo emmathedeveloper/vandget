@@ -205,7 +205,7 @@ export interface IfLogicFragment extends VanWidget {
     $else: (widget: VanWidget | VanWidget) => VanWidget | VanWidget;
 }
 export type HtmlLogicFragmentParam = string | VanStream<string>;
-export type TextTypes = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'small' | 'b' | 'em' | 'strong';
+export type TextTypes = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'small' | 'b' | 'em' | 'strong' | 'bold';
 export type ContainerTypes = 'div' | 'section';
 export type InputTypes = string | 'text' | 'file' | 'password' | 'email' | 'button' | 'checkbox' | 'color' | 'date' | 'datetime' | 'datetime-local' | 'hidden' | 'image' | 'month' | 'number' | 'radio' | 'range' | 'reset' | 'search' | 'submit' | 'tel' | 'text' | 'time' | 'url' | 'week';
 export interface WidgetConfig {
@@ -218,6 +218,13 @@ export interface WidgetConfig {
 export interface TextConfig extends WidgetConfig {
     type?: TextTypes;
     style?: StyleType;
+}
+export interface Alertconfig extends WidgetConfig {
+    id?: Updater<string>;
+    style?: StyleType;
+    onClick: (e: any) => void;
+    children?: any;
+    onCancel: (e: any) => void;
 }
 export interface ButtonConfig extends TextConfig {
     disabled?: Updater<boolean>;

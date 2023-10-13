@@ -6,7 +6,7 @@ import { ImageConfig } from "../interfaces";
 export default function Image(config?: ImageConfig){
 
     const init: any = {
-        tag: 'img',
+        tag: 'img' || 'image',
         ref: config?.ref,
         id: config?.id,
         style: config?.style,
