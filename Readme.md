@@ -2,13 +2,16 @@
 
 ## Pure and fast js Framework 🚀
 
-### Support:
+### Support
+
 [Typescript](https://www.typescriptlang.org/) 🌟
 
-### Contributors:
+### Contributors
+
 [Emmathedeveloper](https://github.com/emmathedeveloper). 👩‍💻
 
 [Metagravity](https://github.com/meta-gravity) 👨‍💻.
 
-#### Note:
-[Vanget]() is not yet in a stable release. This readme file will keep on changing... 🤔
+#### Note
+
+[Vanget](https://github.com/emmathedeveloper/vandget) is not yet in a stable release. This readme file will keep on changing... 🤔
