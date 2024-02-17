@@ -12,6 +12,5 @@
 
 [Metagravity](https://github.com/meta-gravity) 👨‍💻.
 
-#### Note
-
-[Vanget](https://github.com/emmathedeveloper/vandget) is not yet in a stable release. This readme file will keep on changing... 🤔
+#### Note:
+[Vanget]() is not yet in a stable release. This readme file will keep on changing... 🤔
